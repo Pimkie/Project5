@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="RentMovieBundle\Entity\Orders" table="orders">
+    <indexes>
+      <index name="IDX_E52FFDEE7F98CD1C" columns="clientid"/>
+      <index name="IDX_E52FFDEEEEF9E56" columns="movieid"/>
+      <index name="IDX_E52FFDEEE042330C" columns="paymentid"/>
+    </indexes>
+    <id name="orderid" type="integer" column="orderid">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <many-to-one field="paymentid" target-entity="Payment">
+      <join-columns>
+        <join-column name="paymentid" referenced-column-name="paymentid"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="movieid" target-entity="Movies">
+      <join-columns>
+        <join-column name="movieid" referenced-column-name="movieid"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="clientid" target-entity="Client">
+      <join-columns>
+        <join-column name="clientid" referenced-column-name="clientid"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

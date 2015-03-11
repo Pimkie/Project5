@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="RentMovieBundle\Entity\Payment" table="payment">
+    <id name="paymentid" type="integer" column="paymentid">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="form" type="string" column="form" length="20" nullable="true"/>
+    <field name="term" type="integer" column="term" nullable="true"/>
+    <field name="paymentdate" type="date" column="paymentdate" nullable="true"/>
+  </entity>
+</doctrine-mapping>

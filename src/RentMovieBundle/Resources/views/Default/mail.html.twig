@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Film Rental</title>
+		<meta charset="UTF-8">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<style>
+		body {
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			background-color: #FFFF99;
+		}
+		h2 {color: #006699}
+		label {
+			font-weight: bold;
+		}
+		</style>
+	</head>
+	<body>
+	<br/><br/>
+	<h2 align="center">E-mail was successfully send!</h2><br/>
+	<a href="{{path('rent_movie_main')}}"><h3 align="center">Go to the homepage</h3></a>
+	</body>
+</html>

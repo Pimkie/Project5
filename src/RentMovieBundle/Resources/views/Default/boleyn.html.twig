@@ -1,0 +1,40 @@
+{% extends 'RentMovieBundle:Default:layout.html.twig'%}
+
+{% block info %}
+	<p><b>Genres:</b></p>
+	<p><b>Starring:</b></p>
+	<p><b>Year:</b></p>
+	<p><b>Description:</b></p><br/>
+	<p><b>Language:</b></p> 
+	<p><b>Price:</b></p> <br/><br/>
+	<p><b>Trailer:</b></p><br/>
+{% endblock %}
+{% block cover %}
+	<img src="{{ asset('bundles/rentmovie/images/boleyn.jpg') }}"><br/>
+{% endblock %}
+{% block title %}
+	<h4 class="film">The Other Boleyn Girl</h4>
+{% endblock %}
+{% block genres %}
+	<p>Drama, History<br/></p>
+{% endblock %}
+{% block starring %}
+	<p>Natalie Portman, Scarlett Johansson, Eric Bana<br/></p>
+{% endblock %}
+{% block year %}
+	<p>2008<br/></p>
+{% endblock %}
+{% block description %}
+	<p>Two sisters contend for the affection of King Henry VIII.<br/></p>
+{% endblock %}
+{% block language %}
+	<p>English<br/></p>
+{% endblock %}
+{% block price %}
+	<p>$7.99</p>
+{% endblock %}
+{% block trailer %}
+	<video width="450" controls>
+		<source src="{{ asset('bundles/rentmovie/video/boleyn.mp4') }}" type="video/mp4">
+	</video>
+{% endblock %}

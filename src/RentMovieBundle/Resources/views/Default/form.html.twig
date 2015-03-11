@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Film Rental</title>
+		<meta charset="UTF-8">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+		<style>
+		body {
+			margin-left: auto;
+			margin-right: auto;
+			width: 20%;
+			background-color: #FFFF99;
+		}
+		h2 {color: #006699}
+		label {
+			font-weight: bold;
+		}
+		</style>
+		<script language="javascript">
+		function fdate(x)
+		{
+			pattern=/^[1-2][0-9]|[0][1-9]|[3][0-1]$/
+			if (!x.value.match(pattern))
+			alert("Inappropriate date")
+		}
+		function fmonth(x)
+		{
+			pattern=/^[0][1-9]|[1][0-2]$/
+			if (!x.value.match(pattern))
+			alert("Inappropriate month")
+		}
+		function fyear(x)
+		{
+			pattern=/^[2][0][1][5]$/
+			if (!x.value.match(pattern))
+			alert("Inappropriate year. Please, write current one")
+		}
+		</script>
+	</head>
+	<body left="25px">
+		<form class="form-horizontal" id="pay" enctype="multipart/form-data" method="POST" action="{{path('rent_movie_mail')}}">
+			<h2>Payment form:</h2>
+			<label for="form">Payment form:</label>
+			<div class="radio">
+              <label>
+                 <input type="radio" name="optionsRadios" id="radio1" value="option1" checked>
+                    Payment by cash
+                 </label>
+                    </div>
+                  <div class="radio">
+                      <label>
+                   <input type="radio" name="optionsRadios" id="radio2" value="option2">
+                     Payment by credit card
+                       </label>
+                       </div>
+			<label for="term">Term:</label>
+			<input class="input-small" type="text"  name="term" id="term">
+			</br>
+			<label for="date">Payment date:</label>
+			
+				<div class="form-group">
+					<input class="input-small" name="date" onBlur="fdate(date)" placeholder="DD">
+				</div>
+				</br>
+				<div class="form-group">
+					<input class="input-small" name="month" onBlur="fmonth(month)"  placeholder="MM">
+				</div>
+				</br>
+				<div class="form-group">
+					<input class="input-small" name="year" onBlur="fyear(year)"  placeholder="YYYY">
+				</div><br/>
+			
+			<button type="submit" class="btn btn-primary">Send</button>
+		</form>
+	</body>
+</HTML>

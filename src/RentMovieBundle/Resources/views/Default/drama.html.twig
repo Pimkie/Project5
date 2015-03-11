@@ -1,0 +1,50 @@
+{% extends 'RentMovieBundle::layout.html.twig'%}
+
+{% block links %}
+<li><a href="{{path('rent_movie_main')}}">Home</a></li>
+  <li><a href="{{ path('rent_movie_romanceGenre')}}">Romance</a></li>
+  <li><a href="{{ path('rent_movie_historyGenre')}}">History</a></li>
+  <li class="active"><a href="{{ path('rent_movie_dramaGenre')}}">Drama</a></li>
+  <li><a href="{{ path('rent_movie_horrorGenre')}}">Horror</a></li>
+  <li><a href="{{ path('rent_movie_thrillerGenre')}}">Thriller</a></li>
+  <li><a href="{{ path('rent_movie_adventureGenre')}}">Adventure</a></li>
+  <li><a href="{{ path('rent_movie_cartoonGenre')}}">Cartoons</a></li>
+ {% endblock %} 
+ 
+ 
+ 
+ {% block image %}
+  <a href="{{path('rent_movie_club')}}"><img class="img-responsive img-rounded" src="{{ asset('bundles/rentmovie/images/club.jpg') }}" alt=""></a>
+  {% endblock %}
+  
+  
+  {% block title %}   
+  <a href="{{path('rent_movie_club')}}"><font color="#FF1493">Fight Club</font></a> 
+  {% endblock %}
+  
+  {% block year %}   
+      1999
+  {% endblock %}
+  
+  {% block description %}  
+     An insomniac office worker looking for a way to change his life crosses paths with a devil-may-care soap maker and they form an underground fight club that evolves into something much, much more...  
+{% endblock %}
+  
+ {% block image1 %}   
+  <a href="{{path('rent_movie_remember')}}"><img class="img-responsive img-rounded" src="{{ asset('bundles/rentmovie/images/remember.jpg') }}" alt=""></a>
+  {% endblock %} 
+  
+    {% block title1 %}   
+   <a href="{{path('rent_movie_remember')}}"><font color="#FF1493">Remember Me</font></a>
+  {% endblock %}
+  
+  {% block year1 %}   
+      2010
+  {% endblock %}
+  
+  {% block description1 %}  
+                A romantic drama centered on two new lovers: Tyler, whose parents have split in the wake of his brothers suicide, and Ally, who lives each day to the fullest since witnessing her mothers murder
+  {% endblock %}
+  
+
+  

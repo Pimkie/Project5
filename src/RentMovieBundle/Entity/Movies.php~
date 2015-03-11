@@ -1,0 +1,89 @@
+<?php
+
+namespace RentMovieBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Movies
+ *
+ * @ORM\Table(name="movies")
+ * @ORM\Entity
+ */
+class Movies
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=30, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="genre", type="string", length=20, nullable=true)
+     */
+    private $genre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="year", type="integer", nullable=true)
+     */
+    private $year;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="actors", type="string", length=100, nullable=true)
+     */
+    private $actors;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ratingborrowed", type="integer", nullable=true)
+     */
+    private $ratingborrowed;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cover", type="string", length=50, nullable=true)
+     */
+    private $cover;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="trailer", type="string", length=50, nullable=true)
+     */
+    private $trailer;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="borrowingprice", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $borrowingprice;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="movieid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="movies_movieid_seq", allocationSize=1, initialValue=1)
+     */
+    private $movieid;
+
+
+}

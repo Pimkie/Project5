@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Programming Workshop 5</title>
+		<meta charset="UTF-8">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  
+		<style>
+			('.carousel').carousel()
+		</style>
+		
+		<style>
+		.red .active a,
+             .red .active a:hover {
+              background-color: #FF1493;
+}
+			h4 {color:#FF1493;
+			font-size:2em;
+			font-variant: small-caps;}
+			h5 {color:#FF1493;
+				font-size: 125%;
+			font-weight: bold;}
+			body{background-color: #BEBEBE ;
+				margin: 25px 5px;}
+			.overlay { 
+			color:#fff;
+			position:absolute;
+			z-index:12;
+			top:50%;
+			left:0;
+			width:100%;
+			text-align:center;
+			}
+			a.white {color:#fff;}
+			h3 {color:#FF1493;
+			background-color: rgba(203, 233, 247, 0.5);;
+			}
+			form.a {
+			display: inline;
+			}
+		</style>
+		<script type="text/javascript">
+		//	window.onbeforeunload = function() {
+		//	return "Bye now!";
+		//	};
+        </script>
+	</head>
+	<body>	
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span2">
+					<h4 align="center">Most borrowed</h4>
+					<div class="container"><br>
+						
+							<a href="{{path('rent_movie_frozen')}}"><img src="{{ asset('bundles/rentmovie/images/frozen.jpg') }}" style="width:200px"></a>
+						</div>
+						
+						
+					<h4 align="center">Most reviewed</h4>
+					<div class="container"><br>
+						
+							<a href="{{path('rent_movie_sniper')}}"><img src="{{ asset('bundles/rentmovie/images/sniper.jpg') }}" style="width:200px"></a>
+						
+					</div>
+				</div>
+				
+				<div class="span10">
+				
+				{% if name is not defined %}
+					<form class="form-horizontal"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_main')}}">
+						<input class="input" type="text"  name="login"  placeholder="Login">	
+						<input class="input" type="password" name="password"  placeholder="Password">
+						<button type="submit" class="btn btn-primary">Login</button>
+						<a href="{{path('rent_movie_register')}}">Register</a>
+					</form>
+				{% endif %}
+					{% if name is defined %}
+						<div align="right" class="alert alert-success">
+							<strong><p style="font-size:15px; display:inline">Hello, {{name}}!</p></strong>
+							<a href="{{path('rent_movie_logout')}}" align="right">Logout</a>
+							<form class="a"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_orders')}}">
+								<button type="submit" class="btn btn-default">List of orders</button>
+							</form>
+							<form class="a"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_borrowed')}}">
+								<button type="submit" class="btn btn-default">List of borrowed</button>
+							</form>
+						</div>
+					{% endif %}
+
+					<ul class="nav nav-pills red">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="{{path('rent_movie_romanceGenre')}}">Romance</a></li>
+						<li><a href="{{path('rent_movie_historyGenre')}}">History</a></li>
+						<li><a href="{{path('rent_movie_dramaGenre')}}">Drama</a></li>
+						<li><a href="{{path('rent_movie_horrorGenre')}}">Horror</a></li>
+						<li><a href="{{path('rent_movie_thrillerGenre')}}">Thriller</a></li>
+						<li><a href="{{path('rent_movie_adventureGenre')}}">Adventure</a></li>
+						<li><a href="{{path('rent_movie_cartoonGenre')}}">Cartoons</a></li>
+					</ul>
+					
+					<div class="span8">
+						<div class="span4">
+							<h5 align="center"><a href="{{path('rent_movie_remember')}}">Remember Me</a></h5>
+							<a href="{{path('rent_movie_remember')}}"><img src="{{ asset('bundles/rentmovie/images/remember.jpg') }}"></a><br/><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_interstellar')}}">Interstellar</a></h5>
+							<a href="{{path('rent_movie_interstellar')}}"><img src="{{ asset('bundles/rentmovie/images/interstellar.jpg') }}"></a><br/><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_frozen')}}">Frozen</a></h5>
+							<a href="{{path('rent_movie_frozen')}}"><img src="{{ asset('bundles/rentmovie/images/frozen.jpg') }}"></a><br/><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_wars')}}">Bride Wars</a></h5>
+							<a href="{{path('rent_movie_wars')}}"><img src="{{ asset('bundles/rentmovie/images/wars.jpg') }}"></a><br/><br/><br/>
+						</div>
+						<div class="span4">
+							<h5 align="center"><a href="{{path('rent_movie_fifty')}}">Fifty Shades of Grey</a></h5>
+							<a href="{{path('rent_movie_fifty')}}"><img src="{{ asset('bundles/rentmovie/images/fifty.jpg') }}"></a><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_legend')}}">I Am Legend</a></h5>
+							<a href="{{path('rent_movie_legend')}}"><img src="{{ asset('bundles/rentmovie/images/legend.jpg') }}"></a><br/><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_boleyn')}}">The Other Boleyn Girl</a></h5>
+							<a href="{{path('rent_movie_boleyn')}}"><img src="{{ asset('bundles/rentmovie/images/boleyn.jpg') }}"></a><br/><br/><br/>
+							
+						</div>
+						<div class="span4">
+							<h5 align="center"><a href="{{path('rent_movie_jessabelle')}}">Jessabelle</a></h5>
+							<a href="{{path('rent_movie_jessabelle')}}"><img src="{{ asset('bundles/rentmovie/images/jessabelle.jpg') }}"></a><br/><br/><br/>
+							<h5 align="center"><a href="{{path('rent_movie_club')}}">Fight Club</a></h5>
+							<a href="{{path('rent_movie_club')}}"><img src="{{ asset('bundles/rentmovie/images/club.jpg') }}"></a><br/><br/><br/>
+							
+							<h5 align="center"><a href="{{path('rent_movie_sniper')}}">American Sniper</a></h5>
+							<a href="{{path('rent_movie_sniper')}}"><img src="{{ asset('bundles/rentmovie/images/sniper.jpg') }}"></a><br/><br/><br/>
+						</div>
+					</div>
+					<div class="span3">
+						<h4 align="center">Trailers list</h4>
+						<div style="overflow:scroll;  width: 320px; height: 600px;">
+						<h5 align="center"><a href="{{path('rent_movie_wars')}}">Bride Wars</a></h5>
+						<video width="300" poster="{{ asset('bundles/rentmovie/images/wars.jpg') }}" controls>
+							<source src="{{ asset('bundles/rentmovie/video/wars.mp4') }}" type="video/mp4">
+						</video>
+						<h5 align="center"><a href="{{path('rent_movie_club')}}">Fight Club</a></h5>
+						<video width="300" poster="{{ asset('bundles/rentmovie/images/club.jpg') }}" controls>
+							<source src="{{ asset('bundles/rentmovie/video/club.mp4') }}" type="video/mp4">
+						</video>
+						<h5 align="center"><a href="{{path('rent_movie_legend')}}">I Am Legend</a></h5>
+						<video width="300" poster="{{ asset('bundles/rentmovie/images/legend.jpg') }}" controls>
+							<source src="{{ asset('bundles/rentmovie/video/legend.mp4') }}" type="video/mp4">
+						</video>
+						<h5 align="center"><a href="{{path('rent_movie_frozen')}}">Frozen</a></h5>
+						<video width="300" poster="{{ asset('bundles/rentmovie/images/frozen.jpg') }}" controls>
+							<source src="{{ asset('bundles/rentmovie/video/frozen.mp4') }}" type="video/mp4">
+						</video>
+						<h5 align="center"><a href="{{path('rent_movie_fifty')}}">Fifty Shades of Grey</a></h5>
+						<video width="300" poster="{{ asset('bundles/rentmovie/images/fifty.jpg') }}" controls>
+							<source src="{{ asset('bundles/rentmovie/video/fifty.mp4') }}" type="video/mp4">
+						</video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</HTML>

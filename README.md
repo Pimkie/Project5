@@ -1,170 +1,135 @@
-Symfony Standard Edition
-========================
+README
+======
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+What is phpDocumentor?
+----------------
 
-This document contains information on how to download, install, and start
-using Symfony. For a more detailed explanation, see the [Installation][1]
-chapter of the Symfony Documentation.
+phpDocumentor an application that is capable of analyzing your PHP source code and
+DocBlock comments to generate a complete set of API Documentation.
 
-1) Installing the Standard Edition
-----------------------------------
+Inspired by phpDocumentor 1 and JavaDoc it continues to innovate and is up to date
+with the latest technologies and PHP language features.
 
-When it comes to installing the Symfony Standard Edition, you have the
-following options.
+Features
+--------
 
-### Use Composer (*recommended*)
+phpDocumentor supports the following:
 
-As Symfony uses [Composer][2] to manage its dependencies, the recommended way
-to create a new project is to use it.
+* *PHP 5.3 compatible*, full support for Namespaces, Closures and more is provided.
+* *Shows any tag*, some tags add additional functionality to phpDocumentor (such as @link).
+* *Processing speed*, Zend Framework experienced a significant reduction in processing time compared to phpDocumentor 1.
+* *Low memory usage*, peak memory usage for small projects is less than 20MB, medium projects 40MB and large frameworks 100MB.
+* *Incremental parsing*, if you kept the Structure file from a previous run you get an additional performance boost of up
+  to 80% on top of the mentioned processing speed above.
+* *Easy template building*, if you want to make a branding you only have to call 1 task and edit 3 files.
+* *Command-line compatibility with phpDocumentor 1*, phpDocumentor 2 is an application in its own right but the
+  basic phpDocumentor 1 arguments, such as --directory, --file and --target, have been adopted.
+* *Two-step process*, phpDocumentor first generates a cache with your application structure before creating the output.
+  If you'd like you can use that to power your own tools or formatters!
 
-If you don't have Composer yet, download it following the instructions on
-http://getcomposer.org/ or just run the following command:
+Requirements
+------------
 
-    curl -s http://getcomposer.org/installer | php
+phpDocumentor requires the following:
 
-Then, use the `create-project` command to generate a new Symfony application:
+* PHP 5.3.3 or higher
+* ext/iconv, http://php.net/manual/en/book.iconv.php (is enabled by default since PHP 5.0.0)
+* ext/intl, http://php.net/manual/en/book.intl.php
+* The XSL extension, http://www.php.net/manual/en/book.xsl.php (optional, only used with XSL based templates)
+* Graphviz (optional, used for generating Class diagrams)
 
-    php composer.phar create-project symfony/framework-standard-edition path/to/install
+**Note:**
+If you do not want to install the Graphviz dependency you are encouraged to generate your own template and make sure
+that it does not contain anything related to `Graph`.
+An easier solution might be to edit `data/templates/responsive/template.xml` file and remove every line
+containing the word `Graph` but this will be undone with every upgrade of phpDocumentor.
 
-Composer will install Symfony and all its dependencies under the
-`path/to/install` directory.
+Please see the documentation about creating your own templates for more information.
 
-### Download an Archive File
+Installation
+------------
 
-To quickly test Symfony, you can also download an [archive][3] of the Standard
-Edition and unpack it somewhere under your web server root directory.
+There are 3 ways to install phpDocumentor:
 
-If you downloaded an archive "without vendors", you also need to install all
-the necessary dependencies. Download composer (see above) and run the
-following command:
+1. Via PEAR (recommended)
+2. Via [Composer](https://getcomposer.org)
+3. Using the PHAR
 
-    php composer.phar install
+_*Please note* that it is required that the installation path of phpDocumentor does not
+contain spaces. This is a requirement imposed by an external library (libxml)_
 
-2) Checking your System Configuration
--------------------------------------
+### PEAR (recommended)
 
-Before starting coding, make sure that your local system is properly
-configured for Symfony.
+1. phpDocumentor is hosted on its own PEAR channel which can be discovered using the following command:
 
-Execute the `check.php` script from the command line:
+        $ pear channel-discover pear.phpdoc.org
 
-    php app/check.php
+2. After that it is a simple matter of invoking PEAR to install the application
 
-The script returns a status code of `0` if all mandatory requirements are met,
-`1` otherwise.
+        $ pear install phpdoc/phpDocumentor
 
-Access the `config.php` script from a browser:
+### Via Composer
 
-    http://localhost/path-to-project/web/config.php
+1. phpDocumentor is available on [Packagist](https://packagist.org/packages/phpdocumentor/phpdocumentor).
+2. It can be installed as a dependency of your project by running
 
-If you get any warnings or recommendations, fix them before moving on.
+        $ composer require --dev phpdocumentor/phpdocumentor dev-master
 
-3) Browsing the Demo Application
---------------------------------
+Afterwards you are able to run phpDocumentor directly from your `vendor` directory:
 
-Congratulations! You're now ready to use Symfony.
+    $ php vendor/bin/phpdoc
 
-From the `config.php` page, click the "Bypass configuration and go to the
-Welcome page" link to load up your first Symfony page.
+### Using the PHAR
 
-You can also use a web-based configurator by clicking on the "Configure your
-Symfony Application online" link of the `config.php` page.
+1. Download the phar file from http://phpdoc.org/phpDocumentor.phar
+2. ???
+3. Profit!
 
-To see a real-live Symfony page in action, access the following page:
+How to use phpDocumentor?
+-------------------
 
-    web/app_dev.php/demo/hello/Fabien
+The easiest way to run phpDocumentor is by running the following command:
 
-4) Getting started with Symfony
--------------------------------
+    $ phpdoc run -d <SOURCE_DIRECTORY> -t <TARGET_DIRECTORY>
 
-This distribution is meant to be the starting point for your Symfony
-applications, but it also contains some sample code that you can learn from
-and play with.
+This command will parse the source code provided using the `-d` argument and
+output it to the folder indicated by the `-t` argument.
 
-A great way to start learning Symfony is via the [Quick Tour][4], which will
-take you through all the basic features of Symfony2.
+phpDocumentor supports a whole range of options to configure the output of your documentation.
+You can execute the following command, or check our website, for a more detailed listing of available command line options.
 
-Once you're feeling good, you can move onto reading the official
-[Symfony2 book][5].
+    $ phpdoc run -h
 
-A default bundle, `AcmeDemoBundle`, shows you Symfony2 in action. After
-playing with it, you can remove it by following these steps:
+Configuration file(s)
+---------------------
 
-  * delete the `src/Acme` directory;
+phpDocumentor also supports the use of configuration files (named phpdoc.xml or phpdoc.dist.xml by default).
+Please consult the documentation to see the format and supported options.
 
-  * remove the routing entry referencing AcmeDemoBundle in `app/config/routing_dev.yml`;
+Documentation
+-------------
 
-  * remove the AcmeDemoBundle from the registered bundles in `app/AppKernel.php`;
+For more detailed information you can check our online documentation at [http://phpdoc.org/docs/latest/index.html](http://phpdoc.org/docs/latest/index.html).
 
-  * remove the `web/bundles/acmedemo` directory;
+Known issues
+------------
 
-  * empty the `security.yml` file or tweak the security configuration to fit
-    your needs.
+1. phpDocumentor must be installed in a path without spaces due to restrictions in libxml. The XSL transformation
+   will throw all kinds of odd warnings if the path contains spaces.
 
-What's inside?
----------------
+Donations
+---------
 
-The Symfony Standard Edition is configured with the following defaults:
+If you would like to help out financially we accept donations using [gittip](https://www.gittip.com/mvriel/). All
+donations will be used to cover the costs for hosting phpDocumentor's website and PEAR repository.
 
-  * Twig is the only configured template engine;
+Contact
+-------
 
-  * Doctrine ORM/DBAL is configured;
+To come in contact is actually dead simple and can be done in a variety of ways.
 
-  * Swiftmailer is configured;
-
-  * Annotations for everything are enabled.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example
-    code
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  http://symfony.com/doc/2.6/book/installation.html
-[2]:  http://getcomposer.org/
-[3]:  http://symfony.com/download
-[4]:  http://symfony.com/doc/2.6/quick_tour/the_big_picture.html
-[5]:  http://symfony.com/doc/2.6/index.html
-[6]:  http://symfony.com/doc/2.6/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.6/book/doctrine.html
-[8]:  http://symfony.com/doc/2.6/book/templating.html
-[9]:  http://symfony.com/doc/2.6/book/security.html
-[10]: http://symfony.com/doc/2.6/cookbook/email.html
-[11]: http://symfony.com/doc/2.6/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.6/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.6/bundles/SensioGeneratorBundle/index.html
+* Twitter: [@phpDocumentor](http://twitter.com/phpdocumentor)
+* Website: [http://www.phpdoc.org](http://www.phpdoc.org)
+* IRC:     Freenode, #phpdocumentor
+* Github:  [http://www.github.com/phpdocumentor/phpdocumentor2](http://www.github.com/phpdocumentor/phpdocumentor2)
+* E-mail:  [mike.vanriel@naenius.com](mailto:mike.vanriel@naenius.com)

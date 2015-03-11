@@ -1,0 +1,31 @@
+{% extends 'RentMovieBundle::layout.html.twig'%}
+
+{% block links %}
+<li><a href="{{path('rent_movie_main')}}">Home</a></li>
+  <li><a href="{{ path('rent_movie_romanceGenre')}}">Romance</a></li>
+  <li><a href="{{ path('rent_movie_historyGenre')}}">History</a></li>
+  <li><a href="{{ path('rent_movie_dramaGenre')}}">Drama</a></li>
+  <li class="active"><a href="{{ path('rent_movie_horrorGenre')}}">Horror</a></li>
+  <li><a href="{{ path('rent_movie_thrillerGenre')}}">Thriller</a></li>
+  <li><a href="{{ path('rent_movie_adventureGenre')}}">Adventure</a></li>
+  <li><a href="{{ path('rent_movie_cartoonGenre')}}">Cartoons</a></li>
+ {% endblock %} 
+ 
+ 
+ {% block image %}
+  <a href="{{path('rent_movie_jessabelle')}}"><img class="img-responsive img-rounded" src="{{ asset('bundles/rentmovie/images/jessabelle.jpg') }}" alt=""></a>
+  {% endblock %}
+  
+  
+  {% block title %}   
+   <a href="{{path('rent_movie_jessabelle')}}"><font color="#FF1493">Jessabelle</font></a> 
+  {% endblock %}
+  
+  {% block year %}   
+      2014
+  {% endblock %}
+  
+  {% block description %}  
+    Returning to her childhood home in Louisiana to recuperate from a horrific car accident, Jessabelle comes face to face with a long-tormented spirit that has been seeking her return - and has no intention of letting her escape.  
+{% endblock %}
+   

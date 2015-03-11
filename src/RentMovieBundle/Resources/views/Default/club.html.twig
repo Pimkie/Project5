@@ -1,0 +1,44 @@
+{% extends 'RentMovieBundle:Default:layout.html.twig'%}
+
+{% block info %}
+	<p><b>Genres:</b></p>
+	<p><b>Starring:</b></p><br/>
+	<p><b>Year:</b></p>
+	<p><b>Description:</b></p><br/>
+	<p><b>Language:</b></p> 
+	<p><b>Price:</b></p> <br/><br/>
+	<p><b>Trailer:</b></p><br/>
+{% endblock %}
+{% block cover %}
+	<img src="{{ asset('bundles/rentmovie/images/club.jpg') }}"><br/>
+{% endblock %}
+{% block title %}
+	<h4 class="film">Fight Club</h4>
+{% endblock %}
+{% block genres %}
+	<p>Drama<br/></p>
+{% endblock %}
+{% block starring %}
+	<p>Brad Pitt, Edward Norton, Helena Bonham Carter<br/></p>
+{% endblock %}
+{% block year %}
+	<p>1999<br/></p>
+{% endblock %}
+{% block description %}
+	<p>An insomniac office worker looking for a way to change his life crosses paths with a devil-may-care soap maker and they form an underground fight club that evolves into something much, much more...<br/></p>
+{% endblock %}
+{% block language %}
+	<p>English<br/></p>
+{% endblock %}
+{% block price %}
+	<p>$6.99</p>
+{% endblock %}
+{% block trailer %}
+	<video width="450" controls>
+		<source src="{{ asset('bundles/rentmovie/video/club.mp4') }}" type="video/mp4">
+	</video>
+{% endblock %}
+ 
+  
+
+

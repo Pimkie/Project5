@@ -1,0 +1,40 @@
+{% extends 'RentMovieBundle:Default:layout.html.twig'%}
+
+{% block info %}
+	<p><b>Genres:</b></p>
+	<p><b>Starring:</b></p>
+	<p><b>Year:</b></p>
+	<p><b>Description:</b></p><br/><br/> 
+	<p><b>Language:</b></p> 
+	<p><b>Price:</b></p> <br/><br/>
+	<p><b>Trailer:</b></p><br/>
+{% endblock %}
+{% block cover %}
+	<img src="{{ asset('bundles/rentmovie/images/interstellar.jpg') }}"><br/>
+{% endblock %}
+{% block title %}
+	<h4 class="film">How to train your interstellar</h4>
+{% endblock %}
+{% block genres %}
+	<p>Adventure<br/></p>
+{% endblock %}
+{% block starring %}
+	<p>Matthew McConaughey, Anne Hathaway, Jessica Chastain<br/></p>
+{% endblock %}
+{% block year %}
+	<p>2014<br/></p>
+{% endblock %}
+{% block description %}
+	<p>A team of explorers travel through a wormhole in an attempt to ensure humanitys survival.<br/></p>
+{% endblock %}
+{% block language %}
+	<p>English<br/></p>
+{% endblock %}
+{% block price %}
+	<p>$8.99</p>
+{% endblock %}
+{% block trailer %}
+	<video width="450" controls>
+		<source src="{{ asset('bundles/rentmovie/video/interstellar.mp4') }}" type="video/mp4">
+	</video>
+{% endblock %}

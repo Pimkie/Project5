@@ -1,0 +1,87 @@
+rent_movie_main:
+    path:     /main
+    defaults: { _controller: RentMovieBundle:Default:main }
+rent_movie_logout:
+    path:     /logout
+    defaults: { _controller: RentMovieBundle:Default:logout }
+rent_movie_review:
+    path:     /review
+    defaults: { _controller: RentMovieBundle:Default:review }
+rent_movie_borrow:
+    path:     /borrow
+    defaults: { _controller: RentMovieBundle:Default:borrow }
+rent_movie_borrowed:
+    path:     /borrowed
+    defaults: { _controller: RentMovieBundle:Default:borrowed }
+rent_movie_watch:
+    path:     /watch
+    defaults: { _controller: RentMovieBundle:Default:watch }
+rent_movie_orders:
+    path:     /orders
+    defaults: { _controller: RentMovieBundle:Default:orders }
+rent_movie_register:
+    path:     /registration
+    defaults: { _controller: RentMovieBundle:Default:registration }
+rent_movie_remember:
+    path:     /1
+    defaults: { _controller: RentMovieBundle:Default:remember }
+rent_movie_club:
+    path:     /5
+    defaults: { _controller: RentMovieBundle:Default:club }
+rent_movie_wars:
+    path:     /9
+    defaults: { _controller: RentMovieBundle:Default:wars }
+rent_movie_mind:
+    path:     /8
+    defaults: { _controller: RentMovieBundle:Default:mind }
+rent_movie_words:
+    path:     /10
+    defaults: { _controller: RentMovieBundle:Default:words }
+rent_movie_fifty:
+    path:     /2
+    defaults: { _controller: RentMovieBundle:Default:fifty }
+rent_movie_interstellar:
+    path:     /4
+    defaults: { _controller: RentMovieBundle:Default:interstellar }
+rent_movie_jessabelle:
+    path:     /3
+    defaults: { _controller: RentMovieBundle:Default:jessabelle }
+rent_movie_boleyn:
+    path:     /7
+    defaults: { _controller: RentMovieBundle:Default:boleyn }
+rent_movie_sniper:
+    path:     /11
+    defaults: { _controller: RentMovieBundle:Default:sniper }
+rent_movie_legend:
+    path:     /12
+    defaults: { _controller: RentMovieBundle:Default:legend }
+rent_movie_frozen:
+    path:     /6
+    defaults: { _controller: RentMovieBundle:Default:frozen }
+rent_movie_romanceGenre:
+    path:     /romanceGenre
+    defaults: { _controller: RentMovieBundle:Default:romance}
+rent_movie_historyGenre:
+    path:     /historyGenre
+    defaults: { _controller: RentMovieBundle:Default:history}
+rent_movie_dramaGenre:
+    path:     /dramaGenre
+    defaults: { _controller: RentMovieBundle:Default:drama}
+rent_movie_horrorGenre:
+    path:     /horrorGenre
+    defaults: { _controller: RentMovieBundle:Default:horror}
+rent_movie_thrillerGenre:
+    path:     /thrillerGenre
+    defaults: { _controller: RentMovieBundle:Default:thriller}
+rent_movie_adventureGenre:
+    path:     /adventureGenre
+    defaults: { _controller: RentMovieBundle:Default:adventure}
+rent_movie_cartoonGenre:
+    path:     /cartoonGenre
+    defaults: { _controller: RentMovieBundle:Default:cartoon}
+rent_movie_form:
+    path:     /form
+    defaults: { _controller: RentMovieBundle:Default:form}
+rent_movie_mail:
+    path:     /mail
+    defaults: { _controller: RentMovieBundle:Default:mail}

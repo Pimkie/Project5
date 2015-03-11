@@ -1,0 +1,52 @@
+{% extends 'RentMovieBundle::layout.html.twig'%}
+
+{% block links %}
+<li><a href="{{path('rent_movie_main')}}">Home</a></li>
+  <li class="active"><a href="{{ path('rent_movie_romanceGenre')}}">Romance</a></li>
+  <li><a href="{{ path('rent_movie_historyGenre')}}">History</a></li>
+  <li><a href="{{ path('rent_movie_dramaGenre')}}">Drama</a></li>
+  <li><a href="{{ path('rent_movie_horrorGenre')}}">Horror</a></li>
+  <li><a href="{{ path('rent_movie_thrillerGenre')}}">Thriller</a></li>
+  <li><a href="{{ path('rent_movie_adventureGenre')}}">Adventure</a></li>
+  <li><a href="{{ path('rent_movie_cartoonGenre')}}">Cartoons</a></li>
+ {% endblock %} 
+ 
+
+  
+  {% block image %}   
+  <a href="{{path('rent_movie_fifty')}}"><img class="img-responsive img-rounded" src="{{ asset('bundles/rentmovie/images/fifty.jpg') }}" alt=""></a>
+  {% endblock %} 
+  
+    {% block title %}   
+   <a href="{{path('rent_movie_fifty')}}"><font color="#FF1493">Fifty Shades of Grey</font></a>
+  {% endblock %}
+  
+  {% block year %}   
+      2015
+  {% endblock %}
+  
+  {% block description %}  
+               Literature student Anastasia Steeles life changes forever when she meets handsome, yet tormented, billionaire Christian Grey  {% endblock %}
+  
+{% block image1 %}
+  <a href="{{path('rent_movie_wars')}}"><img class="img-responsive img-rounded" src="{{ asset('bundles/rentmovie/images/wars.jpg') }}" alt=""></a>
+  {% endblock %}
+  
+  
+  {% block title1 %}   
+ <a href="{{path('rent_movie_wars')}}"><font color="#FF1493">Bride Wars</font></a>
+  {% endblock %}
+  
+  {% block year1 %}   
+      2009
+  {% endblock %}
+  
+  {% block description1 %}  
+                 Two best friends become rivals when they schedule their respective weddings on the same day.
+  {% endblock %}
+
+  
+                
+  
+  
+  

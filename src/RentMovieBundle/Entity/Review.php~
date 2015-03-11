@@ -1,0 +1,57 @@
+<?php
+
+namespace RentMovieBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Review
+ *
+ * @ORM\Table(name="review", indexes={@ORM\Index(name="IDX_794381C6EEF9E56", columns={"movieid"})})
+ * @ORM\Entity
+ */
+class Review
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ratingreviews", type="integer", nullable=true)
+     */
+    private $ratingreviews;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="moviereviews", type="string", length=255, nullable=true)
+     */
+    private $moviereviews;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="clientid", type="integer", nullable=false)
+     */
+    private $clientid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="reviewid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="review_reviewid_seq", allocationSize=1, initialValue=1)
+     */
+    private $reviewid;
+
+    /**
+     * @var \RentMovieBundle\Entity\Movies
+     *
+     * @ORM\ManyToOne(targetEntity="RentMovieBundle\Entity\Movies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="movieid", referencedColumnName="movieid")
+     * })
+     */
+    private $movieid;
+
+
+}

@@ -1,0 +1,56 @@
+<?php
+
+namespace RentMovieBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Orders
+ *
+ * @ORM\Table(name="orders", indexes={@ORM\Index(name="IDX_E52FFDEE7F98CD1C", columns={"clientid"}), @ORM\Index(name="IDX_E52FFDEEEEF9E56", columns={"movieid"}), @ORM\Index(name="IDX_E52FFDEEE042330C", columns={"paymentid"})})
+ * @ORM\Entity
+ */
+class Orders
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orderid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="orders_orderid_seq", allocationSize=1, initialValue=1)
+     */
+    private $orderid;
+
+    /**
+     * @var \RentMovieBundle\Entity\Payment
+     *
+     * @ORM\ManyToOne(targetEntity="RentMovieBundle\Entity\Payment")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="paymentid", referencedColumnName="paymentid")
+     * })
+     */
+    private $paymentid;
+
+    /**
+     * @var \RentMovieBundle\Entity\Movies
+     *
+     * @ORM\ManyToOne(targetEntity="RentMovieBundle\Entity\Movies")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="movieid", referencedColumnName="movieid")
+     * })
+     */
+    private $movieid;
+
+    /**
+     * @var \RentMovieBundle\Entity\Client
+     *
+     * @ORM\ManyToOne(targetEntity="RentMovieBundle\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="clientid", referencedColumnName="clientid")
+     * })
+     */
+    private $clientid;
+
+
+}

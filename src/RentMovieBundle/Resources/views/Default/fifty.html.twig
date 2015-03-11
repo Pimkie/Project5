@@ -1,0 +1,40 @@
+{% extends 'RentMovieBundle:Default:layout.html.twig'%}
+
+{% block info %}
+	<p><b>Genres:</b></p>
+	<p><b>Starring:</b></p><br/>
+	<p><b>Year:</b></p>
+	<p><b>Description:</b></p><br/><br/>
+	<p><b>Language:</b></p> 
+	<p><b>Price:</b></p> <br/><br/>
+	<p><b>Trailer:</b></p><br/>
+{% endblock %}
+{% block cover %}
+	<img src="{{ asset('bundles/rentmovie/images/fifty.jpg') }}"><br/>
+{% endblock %}
+{% block title %}
+	<h4 class="film">Fifty Shades of Grey</h4>
+{% endblock %}
+{% block genres %}
+	<p>Drama, Romance<br/></p>
+{% endblock %}
+{% block starring %}
+	<p>Dakota Johnson, Jamie Dornan, Jennifer Ehle<br/></p>
+{% endblock %}
+{% block year %}
+	<p>2015<br/></p>
+{% endblock %}
+{% block description %}
+	<p>Literature student Anastasia Steeles life changes forever when she meets handsome, yet tormented, billionaire Christian Grey<br/></p>
+{% endblock %}
+{% block language %}
+	<p>English<br/></p>
+{% endblock %}
+{% block price %}
+	<p>$9.99</p>
+{% endblock %}
+{% block trailer %}
+	<video width="450" controls>
+		<source src="{{ asset('bundles/rentmovie/video/fifty.mp4') }}" type="video/mp4">
+	</video>
+{% endblock %}

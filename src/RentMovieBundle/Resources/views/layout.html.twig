@@ -1,0 +1,227 @@
+ <!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Film Rental</title>
+		<meta charset="UTF-8">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link href="{{ asset('bundles/rentmovie/js/bootstrap.js') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('bundles/rentmovie/js/bootstrap.min.js') }}" rel="stylesheet" type="text/css">
+  
+  <style>
+
+  ('.carousel').carousel()
+  </style>
+  
+  <style>
+  
+            h4 {
+	        color:#FF1493;
+			font-zize:2em;
+			font-variant: small-caps;
+			font-weight: bold;
+			}
+			
+			h5 {
+				color:#FF1493;
+			font-size: 125%;
+			font-weight: bold;
+			font-family:Helvetica;
+			text-align:justify;
+			color:black;
+			}
+			body{ background-color: #BEBEBE ;
+				margin: 25px 5px;}
+			p.c {
+				color:#FF1493;
+			font-size: 150%;
+			font-family:verdana;
+			text-align:center;
+			color:black;
+			font-weight: bold;}
+			p.con{font-size:15px; display:inline}
+		    h2 {
+		    	color:#FF1493;
+			font-family:verdana;
+			text-align:center;
+		
+			font-weight: bold;
+			}
+			h3 {color:#FF1493;
+			background-color: rgba(203, 233, 247, 0.5);
+			}
+			.overlay { 
+			color:#FF1493;
+			position:absolute;
+			z-index:12;
+			top:50%;
+			left:0;
+			width:100%;
+			text-align:center;
+			}
+			a.white {color:#FF1493;}
+			form.a {
+color:#FF1493;
+			display: inline;}
+			.red .active a,
+             .red .active a:hover {
+              background-color: #FF1493;
+}
+			}
+		</style>
+		
+		
+	</head>
+	<body>
+	
+	<div class="container-fluid">
+		<div class="row-fluid">
+		<div class="span2">
+					<h4 align="center">Most borrowed</h4>
+					<div class="container"><br>
+						<div id="myCarouselBorrowed" class="carousel slide" data-ride="carousel" style="width:200px">
+						
+						<ol class="carousel-indicators">
+							<li data-target="#myCarouselBorrowed" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarouselBorrowed" data-slide-to="1"></li>
+							<li data-target="#myCarouselBorrowed" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner" role="listbox">
+                      
+						<div class="item active">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_frozen')}}"><h3>Frozen</h3></a></div>
+							<a href="{{path('rent_movie_frozen')}}"><img src="{{ asset('bundles/rentmovie/images/frozen.jpg') }}"></a>
+						</div>
+						<div class="item">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_fifty')}}"><h3>Fifty Shades of Grey</h3></a></div>
+							<a href="{{path('rent_movie_fifty')}}"><img src="{{ asset('bundles/rentmovie/images/fifty.jpg') }}"></a>
+						</div>
+						<div class="item">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_club')}}"><h3>Fight Club</h3></a></div>
+							<a href="{{path('rent_movie_club')}}"><img src="{{ asset('bundles/rentmovie/images/club.jpg') }}"></a>
+						</div>
+  
+						</div>
+    
+						<a class="carousel-control left" href="#myCarouselBorrowed" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarouselBorrowed" data-slide="next">&rsaquo;</a>
+						</div>
+					</div>
+						
+					<h4 align="center">Most reviewed</h4>
+					<div class="container"><br>
+						<div id="myCarouselReviewed" class="carousel slide" data-ride="carousel" style="width:200px">
+						
+						<ol class="carousel-indicators">
+							<li data-target="#myCarouselReviewed" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarouselReviewed" data-slide-to="1"></li>
+							<li data-target="#myCarouselReviewed" data-slide-to="2"></li>
+						</ol>
+
+						<div class="carousel-inner" role="listbox">
+
+						<div class="item active">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_sniper')}}"><h3>American Sniper</h3></a></div>
+							<a href="{{path('rent_movie_sniper')}}"><img src="{{ asset('bundles/rentmovie/images/sniper.jpg') }}"></a>
+						</div>
+						<div class="item">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_wars')}}"><h3>Bride Wars</h3></a></div>
+							<a href="{{path('rent_movie_wars')}}"><img src="{{ asset('bundles/rentmovie/images/wars.jpg') }}" ></a>
+						</div>
+						<div class="item">
+							<div class="overlay"><a class="white" href="{{path('rent_movie_interstellar')}}"><h3>Interstellar</h3></a></div>
+							<a href="{{path('rent_movie_interstellar')}}"><img src="{{ asset('bundles/rentmovie/images/interstellar.jpg') }}"></a>
+						</div>
+  
+						</div>
+    
+						<a class="carousel-control left" href="#myCarouselReviewed" data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarouselReviewed" data-slide="next">&rsaquo;</a>
+						</div>
+					</div>
+				</div>
+
+	
+    <div class="span10">
+				{% if name is not defined %}
+					<form class="form-horizontal"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_main')}}">
+						<input class="input" type="text"  name="login"  placeholder="Login">	
+						<input class="input" type="password" name="password"  placeholder="Password">
+						<button type="submit" class="btn btn-primary">Login</button>
+						<a href="{{path('rent_movie_register')}}">Register</a>
+					</form>
+				{% endif %}
+					{% if name is defined %}
+						<div align="right" class="alert alert-success">
+							<strong><p style="font-size:15px; display:inline">Hello, {{name}}!</p></strong>
+							<a href="{{path('rent_movie_logout')}}" align="right">Logout</a>
+							<form class="a"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_orders')}}">
+								<button type="submit" class="btn btn-default">List of orders</button>
+							</form>
+							<form class="a"  enctype="multipart/form-data" align="right" method="POST" action="{{path('rent_movie_borrowed')}}">
+								<button type="submit" class="btn btn-default">List of borrowed</button>
+							</form>
+						</div>
+					{% endif %}
+
+<ul class="nav nav-pills red" id="links">
+  {% block links %}   {% endblock %} 
+</ul>
+
+
+        
+        
+
+ <!-- Page Content -->
+ <div class="row">
+    <div class="span12">
+    <div class="container">
+        <div class="row">
+            <div class="span3" id="image">
+              {% block image %}   {% endblock %} 
+            </div>
+            <div class="span8">
+                <h2  id="title">{% block title %}   {% endblock %} </h2>
+				<p class="c" id="year">{% block year %}   {% endblock %}</p>
+                <h5  id="description">{% block description %}   {% endblock %}</h5>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+        <hr>
+			
+     <!-- Page Content -->
+ <div class="row">
+    <div class="span12">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+			    <h2 id="title1">{% block title1 %}   {% endblock %} </h2>
+				<p style="text-align:center" id="year1">{% block year1 %}   {% endblock %}</p>
+                <h5 id="description1">{% block description1 %}   {% endblock %}</h5>
+            </div>
+            <div class="span3" id="image1">
+			 {% block image1 %}   {% endblock %} 
+            </div>
+        </div>
+</div>
+</div>
+  </div>
+
+
+ <footer>
+            <div class="row" align="center">  
+            <div class="span10">
+                    <h6  style="color:black;text-align:center">Programming Workshop 5/ Group Project</h6>
+					</div>
+            </div>
+        </footer>
+</div>
+</div>
+</div>
+	</body>
+</HTML>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<HTML>
+	<head>
+		<title>Film Rental</title>
+		<meta charset="UTF-8">
+		<link href="{{ asset('bundles/rentmovie/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+		<style>
+		body {
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
+			background-color: #FFFF99;
+		}
+		h2 {color: #006699}
+		label {
+			font-weight: bold;
+		}
+		</style>
+	</head>
+	<body left="25px">
+		<h3 align="center">You can't borrow films not being registered and logged in.<br/>Please, register or login.<br/>Link for registration: </h3>
+		<a href="{{path('rent_movie_register')}}"><h2 align="center">Register</h2></a>
+		<h3 align="center">Link to homepage, where you can login:</h3>
+		<a href="{{path('rent_movie_main')}}"><h2 align="center">Login</h2></a>
+	</body>
+</HTML>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="RentMovieBundle\Entity\Review" table="review">
+    <indexes>
+      <index name="IDX_794381C6EEF9E56" columns="movieid"/>
+    </indexes>
+    <id name="reviewid" type="integer" column="reviewid">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="ratingreviews" type="integer" column="ratingreviews" nullable="true"/>
+    <field name="moviereviews" type="string" column="moviereviews" length="255" nullable="true"/>
+    <field name="clientid" type="integer" column="clientid" nullable="false"/>
+    <many-to-one field="movieid" target-entity="Movies">
+      <join-columns>
+        <join-column name="movieid" referenced-column-name="movieid"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

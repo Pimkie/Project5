@@ -1,0 +1,40 @@
+{% extends 'RentMovieBundle:Default:layout.html.twig'%}
+
+{% block info %}
+	<p><b>Genres:</b></p>
+	<p><b>Starring:</b></p>
+	<p><b>Year:</b></p>
+	<p><b>Description:</b></p><br/><br/>
+	<p><b>Language:</b></p> 
+	<p><b>Price:</b></p> <br/><br/>
+	<p><b>Trailer:</b></p><br/>
+{% endblock %}
+{% block cover %}
+	<img src="{{ asset('bundles/rentmovie/images/legend.jpg') }}"><br/>
+{% endblock %}
+{% block title %}
+	<h4 class="film">I Am Legend</h4>
+{% endblock %}
+{% block genres %}
+	<p>Drama, Thriller<br/></p>
+{% endblock %}
+{% block starring %}
+	<p>Will Smith, Alice Braga, Charlie Tahan <br/></p>
+{% endblock %}
+{% block year %}
+	<p>2007<br/></p>
+{% endblock %}
+{% block description %}
+	<p>Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.<br/></p>
+{% endblock %}
+{% block language %}
+	<p>English<br/></p>
+{% endblock %}
+{% block price %}
+	<p>$7.99</p>
+{% endblock %}
+{% block trailer %}
+	<video width="450" controls>
+		<source src="{{ asset('bundles/rentmovie/video/legend.mp4') }}" type="video/mp4">
+	</video>
+{% endblock %}

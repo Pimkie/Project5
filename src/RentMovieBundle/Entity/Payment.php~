@@ -1,0 +1,47 @@
+<?php
+
+namespace RentMovieBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Payment
+ *
+ * @ORM\Table(name="payment")
+ * @ORM\Entity
+ */
+class Payment
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="form", type="string", length=20, nullable=true)
+     */
+    private $form;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="term", type="integer", nullable=true)
+     */
+    private $term;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="paymentdate", type="date", nullable=true)
+     */
+    private $paymentdate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="paymentid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="payment_paymentid_seq", allocationSize=1, initialValue=1)
+     */
+    private $paymentid;
+
+
+}
